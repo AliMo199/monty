@@ -8,7 +8,7 @@ bus_t bus = {NULL, NULL, NULL, 0};
 */
 int main(int argc, char *argv[])
 {
-	char *contnt;
+	char *content;
 	FILE *file;
 	size_t size = 0;
 	ssize_t r_line = 1;
@@ -29,15 +29,15 @@ int main(int argc, char *argv[])
 	}
 	while (r_line > 0)
 	{
-		contnt = NULL;
-		r_line = getline(&contnt, &size, file);
-		bus.contnt = contnt;
+		content = NULL;
+		r_line = getline(&content, &size, file);
+		bus.content = content;
 		count++;
 		if (r_line > 0)
 		{
-			execute(contnt, &stack, count, file);
+			execute(content, &stack, count, file);
 		}
-		free(contnt);
+		free(content);
 	}
 	free_stack(stack);
 	fclose(file);
