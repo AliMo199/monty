@@ -7,17 +7,17 @@
 */
 void f_push(stack_t **head, unsigned int counter)
 {
-	int n, i = 0, flg = 0;
+	int n, j = 0, flag = 0;
 
 	if (bus.arg)
 	{
 		if (bus.arg[0] == '-')
-			i++;
-		for (; bus.arg[i] != '\0'; i++)
+			j++;
+		for (; bus.arg[j] != '\0'; j++)
 		{
-			if (bus.arg[i] > 57 || bus.arg[i] < 48)
-				flg = 1; }
-		if (flg == 1)
+			if (bus.arg[j] > 57 || bus.arg[j] < 48)
+				flag = 1; }
+		if (flag == 1)
 		{ fprintf(stderr, "L%d: usage: push integer\n", counter);
 			fclose(bus.file);
 			free(bus.content);
